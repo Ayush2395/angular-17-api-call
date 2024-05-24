@@ -1,0 +1,26 @@
+<input [(ngModel)]="searchValue" #search type="search" class="form-control mt-3" placeholder="Search (Ctrl+k)">
+
+<div class="table-responsive my-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>User Id</th>
+                <th>User name</th>
+                <th>Full name</th>
+                <th>Email</th>
+                <th>Phone no.</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (user of users | search: searchValue; track user.id) {
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
